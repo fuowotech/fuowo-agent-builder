@@ -22,37 +22,31 @@ export default function TemplatesModal({
   const navigate = useCustomNavigate();
   const { folderId } = useParams();
 
-  // Define categories and their items
+  // Fuowo-focused categories (Phase 1)
   const categories: Category[] = [
     {
-      title: "Templates",
+      title: "Agent Templates",
       items: [
-        { title: "Get started", icon: "SquarePlay", id: "get-started" },
-        { title: "All templates", icon: "LayoutPanelTop", id: "all-templates" },
+        { title: "Starter Agents", icon: "SquarePlay", id: "get-started" },
+        { title: "Agent Templates", icon: "LayoutPanelTop", id: "all-templates" },
       ],
     },
     {
       title: "Use Cases",
       items: [
-        { title: "Assistants", icon: "BotMessageSquare", id: "assistants" },
-        { title: "Classification", icon: "Tags", id: "classification" },
-        { title: "Coding", icon: "TerminalIcon", id: "coding" },
         {
-          title: "Content Generation",
+          title: "Writing Agents",
           icon: "Newspaper",
           id: "content-generation",
         },
-        { title: "Q&A", icon: "Database", id: "q-a" },
-        // { title: "Summarization", icon: "Bot", id: "summarization" },
-        // { title: "Web Scraping", icon: "CodeXml", id: "web-scraping" },
+        { title: "QA Agents", icon: "Database", id: "q-a" },
       ],
     },
     {
       title: "Methodology",
       items: [
-        { title: "Prompting", icon: "MessagesSquare", id: "chatbots" },
-        { title: "RAG", icon: "Database", id: "rag" },
-        { title: "Agents", icon: "Bot", id: "agents" },
+        { title: "Knowledge Agents", icon: "Database", id: "rag" },
+        { title: "Multi-Agents Systems", icon: "Bot", id: "agents" },
       ],
     },
   ];
@@ -67,23 +61,30 @@ export default function TemplatesModal({
               currentTab={currentTab}
               setCurrentTab={setCurrentTab}
             />
+
             <main className="flex flex-1 flex-col gap-4 overflow-auto p-6 md:gap-8">
               {currentTab === "get-started" ? (
                 <GetStartedComponent />
               ) : (
                 <TemplateContentComponent
                   currentTab={currentTab}
-                  categories={categories.flatMap((category) => category.items)}
+                  categories={categories.flatMap(
+                    (category) => category.items,
+                  )}
                 />
               )}
+
               <BaseModal.Footer>
                 <div className="flex w-full flex-col justify-between gap-4 pb-4 sm:flex-row sm:items-center">
-                  <div className="flex flex-col items-start justify-center">
-                    <div className="font-semibold">Start from scratch</div>
+                  <div className="flex flex-col">
+                    <div className="font-semibold">
+                      Create from scratch
+                    </div>
                     <div className="text-sm text-muted-foreground">
-                      Begin with a fresh flow to build from scratch.
+                      Begin with a fresh agent and build it step by step.
                     </div>
                   </div>
+
                   <Button
                     onClick={() => {
                       addFlow().then((id) => {
@@ -91,17 +92,19 @@ export default function TemplatesModal({
                           `/flow/${id}${folderId ? `/folder/${folderId}` : ""}`,
                         );
                       });
-                      track("New Flow Created", { template: "Blank Flow" });
+                      track("New Agent Created", {
+                        template: "Blank Agent",
+                      });
                     }}
                     size="sm"
-                    data-testid="blank-flow"
+                    data-testid="blank-agent"
                     className="shrink-0"
                   >
                     <ForwardedIconComponent
                       name="Plus"
-                      className="h-4 w-4 shrink-0"
+                      className="h-4 w-4"
                     />
-                    Blank Flow
+                    Blank Agent
                   </Button>
                 </div>
               </BaseModal.Footer>

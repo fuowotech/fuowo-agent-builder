@@ -244,7 +244,7 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
   return (
     <CardsWrapComponent
       onFileDrop={flowType === "mcp" ? undefined : handleFileDrop}
-      dragMessage={`Drop your ${isEmptyFolder ? "flows or components" : flowType} here`}
+      dragMessage={`Drop your ${isEmptyFolder ? "agents" : "agents"} here`}
     >
       <div
         className="flex h-full w-full flex-col overflow-y-auto"
@@ -317,12 +317,12 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
                     )
                   ) : flowType === "flows" ? (
                     <div className="pt-24 text-center text-sm text-secondary-foreground">
-                      No flows in this project.{" "}
+                      No agents in this project.{" "}
                       <a
                         onClick={() => setNewProjectModal(true)}
                         className="cursor-pointer underline"
                       >
-                        Create a new flow
+                        Create a new agent
                       </a>
                       , or browse the store.
                     </div>
