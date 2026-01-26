@@ -26,7 +26,7 @@ jest.mock("react-markdown", () => ({
 
 jest.mock("remark-gfm", () => ({
   __esModule: true,
-  default: () => {},
+  default: () => { },
 }));
 
 jest.mock(
@@ -151,7 +151,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       // Verify the building state is active
       expect(screen.getByTestId("stop_building_button")).toBeInTheDocument();
-      expect(screen.getByText("Running flow")).toBeInTheDocument();
+      expect(screen.getByText("Running agent")).toBeInTheDocument();
     });
 
     it("should start timer from zero when building starts", () => {
@@ -185,7 +185,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
       render(<FlowBuildingComponent />);
 
       // Success message should be visible
-      expect(screen.getByText("Flow built successfully")).toBeInTheDocument();
+      expect(screen.getByText("Agent built successfully")).toBeInTheDocument();
 
       // Timer should still be visible showing the final time
       expect(screen.getByText(/\d+\.\d+seconds/)).toBeInTheDocument();
@@ -234,7 +234,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       render(<FlowBuildingComponent />);
 
-      expect(screen.getByText("Running flow")).toBeInTheDocument();
+      expect(screen.getByText("Running agent")).toBeInTheDocument();
       expect(screen.getByTestId("border-trail")).toBeInTheDocument();
     });
 
@@ -244,7 +244,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       render(<FlowBuildingComponent />);
 
-      expect(screen.getByText("Flow built successfully")).toBeInTheDocument();
+      expect(screen.getByText("Agent built successfully")).toBeInTheDocument();
     });
 
     it("should show error message", () => {
@@ -253,7 +253,7 @@ describe("FlowBuildingComponent - Timer Tests", () => {
 
       render(<FlowBuildingComponent />);
 
-      expect(screen.getByText("Flow build failed")).toBeInTheDocument();
+      expect(screen.getByText("Agent build failed")).toBeInTheDocument();
       expect(screen.getByTestId("icon-CircleAlert")).toBeInTheDocument();
     });
 

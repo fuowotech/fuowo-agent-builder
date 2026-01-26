@@ -8,10 +8,10 @@ from lfx.schema.dotdict import dotdict
 
 
 class RunFlowComponent(RunFlowBaseComponent):
-    display_name = "Run Flow"
+    display_name = "Run Agent Flow"
     description = (
-        "Executes another flow from within the same project. Can also be used as a tool for agents."
-        " \n **Select a Flow to use the tool mode**"
+        "Executes another agent flow from within the same project. Can also be used as a tool for agents."
+        " \n **Select a agent flow to use the tool mode**"
     )
     documentation: str = "https://docs.langflow.org/run-flow"
     beta = True

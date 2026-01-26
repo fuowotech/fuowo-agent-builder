@@ -146,7 +146,7 @@ export default function ToolsTable({
 
           const processedDescription =
             row.description !== "" &&
-            row.description !== row.display_description
+              row.description !== row.display_description
               ? row.description
               : isAction
                 ? ""
@@ -154,17 +154,17 @@ export default function ToolsTable({
 
           return selectedRows?.some((selected) => selected.name === row.name)
             ? {
-                ...row,
-                status: true,
-                name: processedValue,
-                description: processedDescription,
-              }
+              ...row,
+              status: true,
+              name: processedValue,
+              description: processedDescription,
+            }
             : {
-                ...row,
-                status: false,
-                name: processedValue,
-                description: processedDescription,
-              };
+              ...row,
+              status: false,
+              name: processedValue,
+              description: processedDescription,
+            };
         }),
       });
     }
@@ -183,16 +183,16 @@ export default function ToolsTable({
   const columnDefs: ColDef[] = [
     {
       field: isAction ? "display_name" : "name",
-      headerName: isAction ? "Flow Name" : "Name",
+      headerName: isAction ? "Agent Name" : "Name",
       flex: 1,
       valueGetter: (params) =>
         !isAction
           ? parseString(
-              params.data.display_name !== ""
-                ? params.data.display_name
-                : params.data.name,
-              ["space_case"],
-            )
+            params.data.display_name !== ""
+              ? params.data.display_name
+              : params.data.name,
+            ["space_case"],
+          )
           : params.data.display_name,
     },
     {
@@ -209,16 +209,16 @@ export default function ToolsTable({
       valueGetter: (params) =>
         params.data.name !== ""
           ? parseString(params.data.name, [
-              "snake_case",
-              "no_blank",
-              "uppercase",
-            ])
+            "snake_case",
+            "no_blank",
+            "uppercase",
+          ])
           : isAction
             ? sanitizeMcpName(params.data.display_name, 46).toUpperCase()
             : parseString(params.data.tags.join(", "), [
-                "snake_case",
-                "uppercase",
-              ]),
+              "snake_case",
+              "uppercase",
+            ]),
       cellClass: "text-muted-foreground",
     },
     {
@@ -382,7 +382,7 @@ export default function ToolsTable({
                   />
                   <div className="text-xs text-muted-foreground">
                     {isAction
-                      ? "Used as the function name when this flow is exposed to clients."
+                      ? "Used as the function name when this agent is exposed to clients."
                       : "Used as the function name when this tool is exposed to the agent."}
                   </div>
                 </div>
@@ -462,7 +462,7 @@ export default function ToolsTable({
                           id="sidebar-desc-input"
                           disabled
                           placeholder="Input controlled by the agent"
-                          onChange={(e) => {}}
+                          onChange={(e) => { }}
                         />
                       </div>
                     ))}

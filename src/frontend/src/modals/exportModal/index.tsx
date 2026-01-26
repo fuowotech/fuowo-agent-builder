@@ -93,7 +93,7 @@ const ExportModal = forwardRef(
               );
 
               setSuccessData({
-                title: "Flow exported successfully",
+                title: "Agent exported successfully",
               });
               setOpen(false);
               track("Flow Exported", { flowId: currentFlow!.id });

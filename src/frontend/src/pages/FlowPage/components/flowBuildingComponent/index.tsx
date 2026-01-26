@@ -85,7 +85,7 @@ export default function FlowBuildingComponent() {
       <TextShimmer duration={1}>
         {statusBuilding.length > 0
           ? `Running ${statusBuilding[0]?.id}`
-          : "Running flow"}
+          : "Running agent"}
       </TextShimmer>
     );
   }, [isBuilding, statusBuilding]);
@@ -129,11 +129,11 @@ export default function FlowBuildingComponent() {
             className={cn(
               "flex flex-col justify-center overflow-hidden rounded-lg border bg-background px-4 py-2 text-sm shadow-md transition-colors duration-200",
               !isBuilding &&
-                buildInfo?.error &&
-                "border-accent-red-foreground text-accent-red-foreground",
+              buildInfo?.error &&
+              "border-accent-red-foreground text-accent-red-foreground",
               !isBuilding &&
-                buildInfo?.success &&
-                "border-accent-emerald-foreground text-accent-emerald-foreground",
+              buildInfo?.success &&
+              "border-accent-emerald-foreground text-accent-emerald-foreground",
             )}
           >
             <AnimatePresence mode="wait">
@@ -155,14 +155,14 @@ export default function FlowBuildingComponent() {
                         {buildingContent ? (
                           buildingContent
                         ) : buildInfo?.success ? (
-                          "Flow built successfully"
+                          "Agent built successfully"
                         ) : (
                           <div className="flex items-center gap-2">
                             <ForwardedIconComponent
                               name="CircleAlert"
                               className="h-5 w-5"
                             />
-                            Flow build failed
+                            Agent build failed
                           </div>
                         )}
                       </div>

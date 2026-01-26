@@ -95,7 +95,7 @@ export const GetStartedProgress: FC<{
               <span>All Set</span> <span className="pl-1"> 🎉 </span>
             </>
           ) : (
-            "Get started"
+            "Start Building"
           )}
         </span>
         <button
@@ -239,8 +239,8 @@ export const GetStartedProgress: FC<{
         openModal={newProjectModal}
         setOpenModal={setNewProjectModal}
         openDeleteFolderModal={false}
-        setOpenDeleteFolderModal={() => {}}
-        handleDeleteFolder={() => {}}
+        setOpenDeleteFolderModal={() => { }}
+        handleDeleteFolder={() => { }}
       />
     </div>
   );

@@ -119,13 +119,13 @@ export const limitScrollFieldsModal = 10;
  * The base text for subtitle of Export Dialog (Toolbar)
  * @constant
  */
-export const EXPORT_DIALOG_SUBTITLE = "Export flow as JSON file.";
+export const EXPORT_DIALOG_SUBTITLE = "Export agent as JSON file.";
 /**
  * The base text for subtitle of Flow Settings (Menubar)
  * @constant
  */
 export const SETTINGS_DIALOG_SUBTITLE =
-  "Customize your flow details and settings.";
+  "Customize your agent details and settings.";
 
 /**
  * The base text for subtitle of Flow Logs (Menubar)
@@ -139,7 +139,7 @@ export const LOGS_DIALOG_SUBTITLE =
  * @constant
  */
 export const CODE_DIALOG_SUBTITLE =
-  "Export your flow to integrate it using this code.";
+  "Export your agent to integrate it using this code.";
 
 /**
  * The base text for subtitle of Chat Form
@@ -174,12 +174,12 @@ export const PROMPT_DIALOG_SUBTITLE =
 
 export const CHAT_CANNOT_OPEN_TITLE = "Chat Cannot Open";
 
-export const CHAT_CANNOT_OPEN_DESCRIPTION = "This is not a chat flow.";
+export const CHAT_CANNOT_OPEN_DESCRIPTION = "This is not a chat agent.";
 
-export const FLOW_NOT_BUILT_TITLE = "Flow not built";
+export const FLOW_NOT_BUILT_TITLE = "Agent not built";
 
 export const FLOW_NOT_BUILT_DESCRIPTION =
-  "Please build the flow before chatting.";
+  "Please build the agent before chatting.";
 
 /**
  * The base text for subtitle of Text Dialog
@@ -192,7 +192,7 @@ export const TEXT_DIALOG_TITLE = "Edit text content";
  * @constant
  */
 export const IMPORT_DIALOG_SUBTITLE =
-  "Import flows from a JSON file or choose from pre-existing examples.";
+  "Import agents from a JSON file or choose from pre-existing examples.";
 
 /**
  * The text that shows when a tooltip is empty
@@ -228,7 +228,7 @@ export const IMGViewErrorTitle = "Image output";
  * @constant
  */
 export const EXPORT_CODE_DIALOG =
-  "Generate the code to integrate your flow into an external application.";
+  "Generate the code to integrate your agent into an external application.";
 
 /**
  * The base text for subtitle of code dialog

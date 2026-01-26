@@ -77,7 +77,7 @@ const HeaderComponent = ({
 
   const handleDownload = () => {
     downloadFlows({ ids: selectedFlows });
-    setSuccessData({ title: "Flows downloaded successfully" });
+    setSuccessData({ title: "Agents downloaded successfully" });
   };
 
   const handleDelete = () => {
@@ -85,7 +85,7 @@ const HeaderComponent = ({
       { flow_ids: selectedFlows },
       {
         onSuccess: () => {
-          setSuccessData({ title: "Flows deleted successfully" });
+          setSuccessData({ title: "Agents deleted successfully" });
         },
       },
     );
@@ -125,16 +125,17 @@ const HeaderComponent = ({
                 onClick={() => {
                   setFlowType(type as "flows" | "components" | "mcp");
                 }}
-                className={`border-b ${
-                  flowType === type
-                    ? "border-b-2 border-foreground text-foreground"
-                    : "border-border text-muted-foreground hover:text-foreground"
-                } text-nowrap px-2 pb-2 pt-1 text-mmd`}
+                className={`border-b ${flowType === type
+                  ? "border-b-2 border-foreground text-foreground"
+                  : "border-border text-muted-foreground hover:text-foreground"
+                  } text-nowrap px-2 pb-2 pt-1 text-mmd`}
               >
                 <div className={flowType === type ? "-mb-px" : ""}>
                   {type === "mcp"
                     ? "MCP Server"
-                    : type.charAt(0).toUpperCase() + type.slice(1)}
+                    : type === "flows"
+                      ? "Agents"
+                      : type.charAt(0).toUpperCase() + type.slice(1)}
                 </div>
               </Button>
             ))}
@@ -147,7 +148,7 @@ const HeaderComponent = ({
                   icon="Search"
                   data-testid="search-store-input"
                   type="text"
-                  placeholder={`Search ${flowType}...`}
+                  placeholder={`Search ${flowType === "flows" ? "agents" : flowType}...`}
                   className="mr-2 !text-mmd"
                   inputClassName="!text-mmd"
                   value={debouncedSearch}
@@ -156,11 +157,10 @@ const HeaderComponent = ({
                 <div className="relative mr-2 flex h-fit rounded-lg border border-muted bg-muted">
                   {/* Sliding Indicator */}
                   <div
-                    className={`absolute top-[2px] h-[32px] w-8 transform rounded-md bg-background shadow-md transition-transform duration-300 ${
-                      view === "list"
-                        ? "left-[2px] translate-x-0"
-                        : "left-[6px] translate-x-full"
-                    }`}
+                    className={`absolute top-[2px] h-[32px] w-8 transform rounded-md bg-background shadow-md transition-transform duration-300 ${view === "list"
+                      ? "left-[2px] translate-x-0"
+                      : "left-[6px] translate-x-full"
+                      }`}
                   ></div>
 
                   {/* Buttons */}
@@ -169,11 +169,10 @@ const HeaderComponent = ({
                       key={viewType}
                       unstyled
                       size="icon"
-                      className={`group relative z-10 m-[2px] flex-1 rounded-lg p-2 ${
-                        view === viewType
-                          ? "text-foreground"
-                          : "text-muted-foreground hover:bg-muted"
-                      }`}
+                      className={`group relative z-10 m-[2px] flex-1 rounded-lg p-2 ${view === viewType
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:bg-muted"
+                        }`}
                       onClick={() => setView(viewType as "list" | "grid")}
                     >
                       <ForwardedIconComponent
@@ -226,7 +225,7 @@ const HeaderComponent = ({
                     </Button>
                   </DeleteConfirmationModal>
                 </div>
-                <ShadTooltip content="New Flow" side="bottom">
+                <ShadTooltip content="New Agent" side="bottom">
                   <Button
                     variant="default"
                     size="iconMd"
@@ -241,7 +240,7 @@ const HeaderComponent = ({
                       className="h-4 w-4"
                     />
                     <span className="hidden whitespace-nowrap font-semibold md:inline">
-                      New Flow
+                      New Agent
                     </span>
                   </Button>
                 </ShadTooltip>

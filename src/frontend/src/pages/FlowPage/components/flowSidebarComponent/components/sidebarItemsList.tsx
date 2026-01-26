@@ -37,7 +37,10 @@ const SidebarItemsList = ({
             : sensitiveSort(itemA.display_name, itemB.display_name);
         })
         .map((SBItemName) => {
-          const currentItem = dataFilter[item.name][SBItemName];
+          let currentItem = dataFilter[item.name][SBItemName];
+          if (currentItem.display_name === "Run Flow") {
+            currentItem = { ...currentItem, display_name: "Run Agent Flow" };
+          }
 
           if (SBItemName === "ChatInput" || SBItemName === "Webhook") {
             return (

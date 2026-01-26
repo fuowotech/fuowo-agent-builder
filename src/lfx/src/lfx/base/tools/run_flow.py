@@ -58,7 +58,7 @@ class RunFlowBaseComponent(Component):
     _base_inputs: list[InputTypes] = [
         DropdownInput(
             name="flow_name_selected",
-            display_name="Flow Name",
+            display_name="Agent Flow Name",
             info="The name of the flow to run.",
             options=[],
             options_metadata=[],

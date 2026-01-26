@@ -30,7 +30,7 @@ const NoInputView: React.FC<NoInputViewProps> = ({
               });
             }}
           >
-            Run Flow
+            Run Agent
           </Button>
         ) : (
           <Button

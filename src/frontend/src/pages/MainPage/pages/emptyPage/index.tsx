@@ -15,7 +15,7 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
 
   return (
     <CardsWrapComponent
-      dragMessage={`Drop your flows or components here`}
+      dragMessage={`Drop your agents or components here`}
       onFileDrop={handleFileDrop}
     >
       <div className="m-0 h-full w-full bg-secondary p-0">
@@ -46,7 +46,7 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
                 className="h-4 w-4"
               />
               <span className="hidden whitespace-nowrap font-semibold md:inline">
-                New Flow
+                New Agent
               </span>
             </Button>
           </div>

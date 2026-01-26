@@ -72,7 +72,7 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
             MCP Server
           </div>
           <div className="pb-4 text-mmd text-muted-foreground">
-            Access your Project's flows as Tools within a MCP Server. Learn more
+            Access your Project's agents as Tools within a MCP Server. Learn more
             in our
             <a
               className="text-accent-pink-foreground"
@@ -110,11 +110,10 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
                 <Button
                   unstyled
                   key={item.name}
-                  className={`flex h-6 flex-row items-end gap-2 text-nowrap border-b-2 border-border border-b-transparent !py-1 font-medium ${
-                    selectedMode === item.name
+                  className={`flex h-6 flex-row items-end gap-2 text-nowrap border-b-2 border-border border-b-transparent !py-1 font-medium ${selectedMode === item.name
                       ? "border-b-2 border-black dark:border-b-white"
                       : "text-muted-foreground hover:text-foreground"
-                  } px-3 py-2 text-[13px]`}
+                    } px-3 py-2 text-[13px]`}
                   onClick={() => setSelectedMode(item.name)}
                 >
                   <span>{item.name}</span>

@@ -16,11 +16,11 @@ export const McpFlowsSection = ({
   <div className="w-full xl:w-2/5">
     <div className="flex flex-row justify-between pt-1">
       <ShadTooltip
-        content="Flows in this project can be exposed as callable MCP tools."
+        content="Agents in this project can be exposed as callable MCP tools."
         side="right"
       >
         <div className="flex items-center text-sm font-medium hover:cursor-help">
-          Flows/Tools
+          Agents/Tools
           <ForwardedIconComponent
             name="info"
             className="ml-1.5 h-4 w-4 text-muted-foreground"
@@ -36,7 +36,7 @@ export const McpFlowsSection = ({
         description="Select tools to add to this server"
         handleOnNewValue={handleOnNewValue}
         id="mcp-server-tools"
-        button_description="Edit Tools"
+        button_description="Edit Agents"
         editNode={false}
         isAction
         disabled={false}

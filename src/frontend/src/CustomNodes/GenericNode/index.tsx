@@ -62,7 +62,7 @@ const _HiddenOutputsButton = memo(
 );
 
 function GenericNode({
-  data,
+  data: rawData,
   selected,
 }: {
   data: NodeDataType;
@@ -70,6 +70,25 @@ function GenericNode({
   xPos?: number;
   yPos?: number;
 }): JSX.Element {
+  const data = useMemo(() => {
+    if (rawData.node?.display_name === "Run Flow") {
+      const newNode = cloneDeep(rawData);
+      if (newNode.node) {
+        newNode.node.display_name = "Run Agent Flow";
+        if (newNode.node.description) {
+          newNode.node.description = newNode.node.description
+            .replace("Executes another flow", "Executes another agent flow")
+            .replace("Select a Flow", "Select a agent flow");
+        }
+        if (newNode.node.template?.flow_name_selected) {
+          newNode.node.template.flow_name_selected.display_name =
+            "Agent Flow Name";
+        }
+      }
+      return newNode;
+    }
+    return rawData;
+  }, [rawData]);
   const [borderColor, setBorderColor] = useState<string>("");
   const [loadingUpdate, setLoadingUpdate] = useState(false);
   const [showHiddenOutputs, setShowHiddenOutputs] = useState(false);
@@ -399,7 +418,7 @@ function GenericNode({
             numberOfOutputHandles={shownOutputs.length ?? 0}
             showNode={showNode}
             openAdvancedModal={false}
-            onCloseAdvancedModal={() => {}}
+            onCloseAdvancedModal={() => { }}
             updateNode={() => handleUpdateCode()}
             isOutdated={isOutdated && (dismissAll || isUserEdited)}
             isUserEdited={isUserEdited}

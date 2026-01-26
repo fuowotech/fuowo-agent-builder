@@ -103,7 +103,7 @@ class TestRunFlowBaseComponentFlowRetrieval:
             mock_get.assert_called_once_with(
                 user_id=component._user_id,
                 flow_id=None,
-                flow_name=flow_name,
+                display_name="Agent Flow Name",
             )
 
     @pytest.mark.asyncio
@@ -125,7 +125,7 @@ class TestRunFlowBaseComponentFlowRetrieval:
         """Test that get_graph raises ValueError when neither ID nor name is provided."""
         component = RunFlowBaseComponent()
 
-        with pytest.raises(ValueError, match="Flow name or id is required"):
+        with pytest.raises(ValueError,            msg = "Flow name or id is required"):
             await component.get_graph()
 
     @pytest.mark.asyncio
